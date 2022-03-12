@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shodaimamalistview/getData.dart';
 
+import 'detailsView.dart';
+
 class ListViewPage extends StatefulWidget {
   const ListViewPage({Key? key}) : super(key: key);
 
@@ -43,8 +45,16 @@ class _ListViewPageState extends State<ListViewPage> {
                     return ListTile(
                       title: Text(value.data[i].id),
                       subtitle: Text(value.data[i].author),
+                      trailing: Icon(Icons.more_vert_outlined),
                       onTap: (){
-
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context)=>
+                                detailsView(
+                                    id: (value.data[i].id),
+                                    url: (value.data[i].url),
+                                    author: (value.data[i].author),
+                                    width: (value.data[i].width),
+                                    height: (value.data[i].height))));
                       },
                     );
                   });
