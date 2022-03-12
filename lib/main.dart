@@ -20,7 +20,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Home'),
+      home: ChangeNotifierProvider(
+        create: (context) => getData(),
+        builder: (context,child){
+          return ListViewPage();
+        },
+      ),
     );
   }
 }
@@ -49,6 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             ),
             onPressed: () {
+              ChangeNotifierProvider(
+                create: (context) => getData(),
+                builder: (context,child){
+                  return ListViewPage();
+                },
+              );
               Navigator.push(context, MaterialPageRoute(
                   builder: (context)=> const ListViewPage()));
             },
