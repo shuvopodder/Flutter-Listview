@@ -11,7 +11,6 @@ class detailsView extends StatelessWidget {
   final int width,height;
   const detailsView({Key? key, required this.id, required this.url, required this.author, required this.width, required this.height}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +42,7 @@ class detailsView extends StatelessWidget {
   }
   Future<void> _onOpen(LinkableElement link) async {
     if (await canLaunch(link.url)) {
-      await launch(link.url);
+      await launch(link.url,forceWebView: true);
     } else {
       throw 'Could not launch $link';
     }
