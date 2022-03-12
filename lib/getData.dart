@@ -19,7 +19,6 @@ class getData with ChangeNotifier{
       data.add(list);
     }
 
-    print(data);
     notifyListeners();
     return data;
   }

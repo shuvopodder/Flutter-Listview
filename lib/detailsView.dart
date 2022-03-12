@@ -1,7 +1,6 @@
 
 // ignore_for_file: file_names
 
-import 'package:flutter/cupertino.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,22 +20,34 @@ class detailsView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text("ID: "+ id),
-            Text("Author: "+ author),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("Width: "+ width.toString()),
-                Text("Height: "+ height.toString()),],
+            Container(
+              height: 250.0,
+              width: 250.0,
+              color: Colors.blue,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text("ID: "+ id,style: const TextStyle(color: Colors.white)),
+                  Text("Author: "+ author,style: const TextStyle(color: Colors.white)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("Width: "+ width.toString(),style: const TextStyle(color: Colors.white)),
+                      Text("Height: "+ height.toString(),style: const TextStyle(color: Colors.white)),],
+                  ),
+                ],
+              ),
             ),
-            Linkify(
-              onOpen: _onOpen,
-              textScaleFactor: 2,
-              text: "Photo Url: "+ url,
+            Center(
+              child: Linkify(
+                onOpen: _onOpen,
+                textScaleFactor: 2,
+                text: "Photo Url: "+ url,
+              ),
             ),
-
           ],
-        ),
+        )
+
       ),
     );
   }

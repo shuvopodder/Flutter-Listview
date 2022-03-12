@@ -36,8 +36,7 @@ class _ListViewPageState extends State<ListViewPage> {
         child: Center(
           child: Consumer<getData>(
             builder:(context,value,child){
-              //if(value.data==null)
-              return value.data.isEmpty
+               return value.data.isEmpty
                   ? const CircularProgressIndicator()
                   : ListView.builder(
                   itemCount: value.data.length,

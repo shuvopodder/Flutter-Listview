@@ -49,17 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             ),
             onPressed: () {
-              /*ChangeNotifierProvider(
-                create: (context) => getData(),
-                builder: (context,child){
-                  return ListViewPage();
-                },
-              );*/
               Navigator.push(context, MaterialPageRoute(
                   builder: (context)=> const ListViewPage()));
             },
 
-            child: Text('Click To View'),
+            child: const Text('List View'),
           )
 
       ),
