@@ -1,7 +1,7 @@
 
 // ignore_for_file: file_names
 
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shodaimamalistview/getData.dart';
 
@@ -34,6 +34,7 @@ class _ListViewPageState extends State<ListViewPage> {
         child: Center(
           child: Consumer<getData>(
             builder:(context,value,child){
+              //if(value.data==null)
               return value.data.isEmpty
                   ? const CircularProgressIndicator()
                   : ListView.builder(

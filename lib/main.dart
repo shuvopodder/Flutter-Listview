@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shodaimamalistview/ListViewPage.dart';
+import 'package:shodaimamalistview/getData.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_)=>getData())
+  ],child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -44,8 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             ),
             onPressed: () {
-
+              /*ChangeNotifierProvider(
+                create: (context) => getData(),
+                builder: (context,child){
+                  return ListViewPage();
+                },
+              );*/
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context)=> const ListViewPage()));
             },
+
             child: Text('Click To View'),
           )
 
